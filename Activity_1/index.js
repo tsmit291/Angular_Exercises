@@ -11,6 +11,7 @@ app.controller("MyController", function($scope){
     contractor.name = $scope.name;
     contractor.rate = $scope.rate;
     $scope.contractors.push(contractor);
+    $scope.name = null;
     console.log($scope.contractors);
     if ($scope.contractors.length > 3){
       $scope.buttonText="REALLY?"
