@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+  <!DOCTYPE html>
+  <html ng-app="taylor">
+    <head>
+      <meta charset="utf-8">
+      <title>My first angular app</title>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.2/angular.js">
+      </script>
+      <script type="text/javascript" src="index.js">
+      </script>
+    </head>
+    <body ng-controller="MyController">
+      <p>
+        Search for a Contractor:
+        <input type="text" ng-model="searchable.name">
+      </p>
+      <div ng-click="showme=true">
+        <input type="button" value="Add a Contractor">
+      </div>
+      <div ng-show="showme">
+        <form ng-submit="getContractor()">
+          <input type="text" placeholder="Contractor Name" ng-model="name">
+          <input type="text" placeholder="Insert Rate" ng-model="rate">
+          <div ng-click="showme=false">
+            <input type="submit" value="{{buttonText}}">
+          </div>
+        </form>
+      </div>
+
+      <p>
+        <div ng-repeat="contractor in contractors | filter:searchable.name">
+          <p>{{contractor.name}}</p>
+          <p>{{contractor.rate | currency}} /hr</p>
+        <div ng-show="contractor.rate > 99">
+            Woah Nelly! This rate is high!
+        </div>
+        <hr>
+      </div>
+      </p>
+    </body>
+  </html>
