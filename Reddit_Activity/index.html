@@ -3,16 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>Reddit App</title>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.2/angular.js"></script>
     <script type="text/javascript" src="index.js"></script>
   </head>
-  <body ng-controller="NewController">
+  <body ng-controller="MyController">
     <header>
       <p>Reddit Clone</p>
       <p>
         Search for Post
         <input type="text" ng-model="searchable.name">
       </p>
+      <div ng-click="showme=true">
+        <input type="button" value="Add a Post">
+      </div>
     </header>
     <div ng-show="showme">
       <form ng-submit="newPost()">
@@ -24,5 +27,15 @@
         <div ng-click="showme=false">
           <input type="submit" value="{{buttonText}}">
         </div>
+      </form>
+    </div>
+    <div ng-repeat="post in posts | filter:searchable.name">
+      <p>{{post.title}}</p>
+      <p>{{post.image}}</p>
+      <p>{{post.description}}</p>
+      <p>{{post.author}}</p>
+      <p>{{post.date}}</p>
+      <hr>
+    </div>
   </body>
 </html>
