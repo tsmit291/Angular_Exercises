@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="redditApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Reddit App</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+  </head>
+  <body ng-controller="NewController">
+    <header>
+      <p>Reddit Clone</p>
+      <p>
+        Search for Post
+        <input type="text" ng-model="searchable.name">
+      </p>
+    </header>
+    <div ng-show="showme">
+      <form ng-submit="newPost()">
+        <input type="text" placeholder="Title" ng-model="title">
+        <input type="text" placeholder="Image" ng-model="image">
+        <input type="text" placeholder="Description" ng-model="description">
+        <input type="text" placeholder="Author" ng-model="author">
+        <input type="text" placeholder="Date" ng-model="filter">
+        <div ng-click="showme=false">
+          <input type="submit" value="{{buttonText}}">
+        </div>
+  </body>
+</html>
