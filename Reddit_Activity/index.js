@@ -2,7 +2,9 @@ var app = angular.module("redditApp", []);
 app.controller("MyController", function($scope){
 
   $scope.posts = [];
+  $scope.comments = [];
   $scope.buttonText= "Submit New Post";
+  $scope.commentText= "Submit New Comment";
 
   $scope.newPost = function(){
     var post = {};
@@ -13,7 +15,14 @@ app.controller("MyController", function($scope){
     post.date = $scope.date;
     $scope.posts.push(post);
     $scope.title = null;
-    console.log($scope.posts);
+
+    $scope.newComments = function(){
+      var allComments = {};
+      allComments.usercomment = $scope.usercomment;
+      allComments.commentor = $scope.commentor;
+      $scope.comments.push(allComments);
+    }
+
   }
 
 

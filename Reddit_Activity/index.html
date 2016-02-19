@@ -37,5 +37,15 @@
       <p>{{post.date}}</p>
       <hr>
     </div>
+
+      <form ng-submit="newComments()">
+        <input type="text" placeholder="Comment" ng-model="usercomment">
+        <div ng-click="showme=false">
+          <input type="submit" value="{{commentText}}">
+      </form>
+      <div ng-repeat="allComments in comments | filter:searchable.commentor">
+        <p>{{allComments.usercomment}}</p>
+        <p>{{allComments.commentor}}</p>
+
   </body>
 </html>
