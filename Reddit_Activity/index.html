@@ -29,6 +29,7 @@
         </div>
       </form>
     </div>
+
     <div ng-repeat="post in posts | filter:searchable.name">
       <p>{{post.title}}</p>
       <p>{{post.image}}</p>
@@ -37,15 +38,23 @@
       <p>{{post.date}}</p>
       <hr>
     </div>
-
+    <div ng-click="showcomments=true">
+      <input type="button" value="Add a Comment">
+    </div>
+    <div ng-show="showcomments">
       <form ng-submit="newComments()">
         <input type="text" placeholder="Comment" ng-model="usercomment">
-        <div ng-click="showme=false">
+        <input type="text" placeholder="Commentor" ng-model="commentor">
+        <div ng-click="showcomments=false">
           <input type="submit" value="{{commentText}}">
+        </div>
       </form>
-      <div ng-repeat="allComments in comments | filter:searchable.commentor">
-        <p>{{allComments.usercomment}}</p>
-        <p>{{allComments.commentor}}</p>
+    </div>
 
+    <div ng-repeat="allComments in comments | filter:searchable.commentor">
+      <p>{{allComments.usercomment}}</p>
+      <p>{{allComments.commentor}}</p>
+      <hr>
+    </div>
   </body>
 </html>
