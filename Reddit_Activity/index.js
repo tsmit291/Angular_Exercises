@@ -3,8 +3,8 @@ app.controller("MyController", function($scope){
 
   $scope.posts = [];
   $scope.comments = [];
-  $scope.buttonText= "Submit New Post";
-  $scope.commentText= "Submit New Comment";
+  $scope.buttonText = "Submit New Post";
+  $scope.commentText = "Submit New Comment";
   $scope.commentButton= "Show All Comments";
 
   $scope.newPost = function(){
@@ -14,7 +14,6 @@ app.controller("MyController", function($scope){
     post.description = $scope.description;
     post.author = $scope.author;
     post.date = $scope.date;
-    post.allComments = false;
     $scope.posts.push(post);
     $scope.title = null;
 
@@ -24,10 +23,8 @@ app.controller("MyController", function($scope){
       allComments.commentor = $scope.commentor;
       $scope.comments.push(allComments);
     }
-
+    $scope.posts.push(comments);
   }
 
 
-
-
-});
+  });

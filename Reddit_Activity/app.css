@@ -23,7 +23,14 @@ header {
 }
 
 .postLoop {
+ width: 100%;
+ padding: 2% 2% 0 2%;
+ background-color: pink;
+};
 
+.break {
+  height: 2%;
+  background-color: white;
 }
 
 .postComments {
