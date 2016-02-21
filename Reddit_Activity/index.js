@@ -5,6 +5,7 @@ app.controller("MyController", function($scope){
   $scope.comments = [];
   $scope.buttonText= "Submit New Post";
   $scope.commentText= "Submit New Comment";
+  $scope.commentButton= "Show All Comments";
 
   $scope.newPost = function(){
     var post = {};
@@ -13,6 +14,7 @@ app.controller("MyController", function($scope){
     post.description = $scope.description;
     post.author = $scope.author;
     post.date = $scope.date;
+    post.allComments = false;
     $scope.posts.push(post);
     $scope.title = null;
 

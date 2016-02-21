@@ -5,9 +5,10 @@
     <title>Reddit App</title>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.2/angular.js"></script>
     <script type="text/javascript" src="index.js"></script>
+  <link rel="stylesheet" href="app.css">
   </head>
   <body ng-controller="MyController">
-    <header>
+    <header class="header">
       <p>Reddit Clone</p>
       <p>
         Search for Post
@@ -17,44 +18,45 @@
         <input type="button" value="Add a Post">
       </div>
     </header>
-    <div ng-show="showme">
+    <div class="postForm" ng-show="showme">
       <form ng-submit="newPost()">
         <input type="text" placeholder="Title" ng-model="title">
         <input type="text" placeholder="Image" ng-model="image">
         <input type="text" placeholder="Description" ng-model="description">
         <input type="text" placeholder="Author" ng-model="author">
-        <input type="text" placeholder="Date" ng-model="filter">
+        <input type="text" placeholder="Date" ng-model="date">
         <div ng-click="showme=false">
           <input type="submit" value="{{buttonText}}">
         </div>
       </form>
     </div>
 
-    <div ng-repeat="post in posts | filter:searchable.name">
+    <div class="postLoop" ng-repeat="post in posts | filter:searchable.name">
       <p>{{post.title}}</p>
       <p>{{post.image}}</p>
       <p>{{post.description}}</p>
       <p>{{post.author}}</p>
-      <p>{{post.date}}</p>
+      <p>{{post.date | date}}</p>
       <hr>
-    </div>
-    <div ng-click="showcomments=true">
+    <div class="postComments" ng-click="post.allComments">
       <input type="button" value="Add a Comment">
     </div>
-    <div ng-show="showcomments">
+    <div class="showComments" ng-show="showcomments=true">
       <form ng-submit="newComments()">
         <input type="text" placeholder="Comment" ng-model="usercomment">
         <input type="text" placeholder="Commentor" ng-model="commentor">
-        <div ng-click="showcomments=false">
+        <div ng-click="showcomments">
           <input type="submit" value="{{commentText}}">
         </div>
       </form>
     </div>
-
-    <div ng-repeat="allComments in comments | filter:searchable.commentor">
+    <div ng-repeat="allComments in comments">
       <p>{{allComments.usercomment}}</p>
       <p>{{allComments.commentor}}</p>
-      <hr>
+    <div ng-click="showcomments=true">
+      <input type="submit" value="{{commentButton}}">
     </div>
+    </div>
+  </div>
   </body>
 </html>
