@@ -9,13 +9,12 @@ app.controller("MyController", function($scope){
 
   $scope.newPost = function(){
     var post = {};
+    post.votes = 0;
     post.title = $scope.title;
     post.image = $scope.image;
     post.description = $scope.description;
     post.author = $scope.author;
     post.date = $scope.date;
-    post.likes = 0;
-    post.dislikes = 0;
     post.comments = [];
     $scope.posts.push(post);
     $scope.title = null;
@@ -30,13 +29,14 @@ app.controller("MyController", function($scope){
     }
 
     $scope.toggleComments = false;
+    $scope.plusOne = !$scope.plusOne;
 
     $scope.plusOne = function(index){
-      $scope.posts[index].likes += 1;
+      index.votes += 1;
     };
 
-    $scope.minusOne = function(){
-      $scope.posts[index].dislikes -= 1;
+    $scope.minusOne = function(index){
+      index.votes -= 1;
     };
   }
 

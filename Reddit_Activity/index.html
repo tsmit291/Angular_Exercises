@@ -38,11 +38,12 @@
       <img src="{{post.image}}" class="image"></img>
       <div class="content">
       <p class="postTitle">{{post.title | uppercase}}</p>
-      <p class="likes" ng-click="plusOne(index)">+{{posts.likes}}</p>
-      <p class="dislikes" ng-click="minusOne(index)">-{{posts.dislikes}}</p>
+      <p class="likes" ng-click="plusOne(post)">upvote</p>
+      <p class="dislikes" ng-click="minusOne(post)">downvote</p>
+      <p>{{post.votes}}</p>
       <p class="description">{{post.description}}</p>
       <p class="author">{{post.author}}</p>
-      <p class="date">{{post.date | date}}</p>
+      <p class="date">{{post.date | date:'medium'}}</p>
       <hr>
       </div>
 
