@@ -18,8 +18,9 @@ header {
   background-color: pink;
 }
 
-.postForm {
-
+p .image {
+  width: 10px;
+  height: 10px;
 }
 
 .postLoop {
@@ -31,12 +32,4 @@ header {
 .break {
   height: 2%;
   background-color: white;
-}
-
-.postComments {
-
-}
-
-.showComments {
-
 }
