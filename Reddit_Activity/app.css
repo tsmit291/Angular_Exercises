@@ -33,24 +33,33 @@ body {
 }
 
 .image {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   border-radius: 2px;
+  border: 2px solid grey;
   float: left;
 }
 
 .content{
-  padding-left: 3%;
+  padding: 3%;
   display: inline-block;
   width: 70%;
 }
 
 .postTitle {
-  font-size: 16px;
+  font-size: 20px;
+  float:left;
   font-weight: bolder;
-  display: inline-block;
-  padding-left: 1%;
   margin: auto 0;
+}
+
+.likes {
+  float: left;
+}
+
+.dislikes {
+  float: left;
+  padding-left: 2%;
 }
 
 .description {
@@ -63,11 +72,13 @@ body {
 .author {
   font-size: 10px;
   padding-left: 1%;
+  float: left;
 }
 
 .date {
   padding-left: 1%;
   font-size: 10px;
+  display: inline-block;
 }
 
 .usercomment {
@@ -94,6 +105,12 @@ body {
  padding: 2% 2% 0 2%;
  background-color: #e1e6fa;
 };
+
+.commentLoop {
+  width: 100%;
+  padding: 2% 2% 0 5%;
+  background-color: #e1e6fa;
+}
 
 .break {
   height: 2%;

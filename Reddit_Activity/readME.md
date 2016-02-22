@@ -1,9 +1,9 @@
 <!-- Each post has a title, author, image, and description. -->
 - complete
-Each post's date/time is displayed nicely: "Yesterday at 3:09pm", "Last Thursday at 4:42am", etc. You will need an external library. Watch the video for more details.
--
-A user can upvote/downvote posts
--
+<!-- Each post's date/time is displayed nicely: "Yesterday at 3:09pm", "Last Thursday at 4:42am", etc. You will need an external library. Watch the video for more details. -->
+-complete
+<!-- A user can upvote/downvote posts -->
+- complete
 Posts dynamically reorder according to number of votes
 -
 <!-- A user can create new posts -->

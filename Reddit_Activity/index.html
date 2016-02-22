@@ -40,8 +40,8 @@
       <p class="likes" ng-click="plusOne(post)">upvote</p>
       <p class="dislikes" ng-click="minusOne(post)">downvote</p>
       <p>{{post.votes}}</p>
+      <p class="author">{{post.author}}<i> says:</i></p>
       <p class="description">{{post.description}}</p>
-      <p class="author">{{post.author}}</p>
       <p class="date">{{post.date | date:'medium'}}</p>
       <hr>
       </div>
