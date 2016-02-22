@@ -14,6 +14,8 @@ app.controller("MyController", function($scope){
     post.description = $scope.description;
     post.author = $scope.author;
     post.date = $scope.date;
+    post.likes = 0;
+    post.dislikes = 0;
     post.comments = [];
     $scope.posts.push(post);
     $scope.title = null;
@@ -28,6 +30,14 @@ app.controller("MyController", function($scope){
     }
 
     $scope.toggleComments = false;
+
+    $scope.plusOne = function(index){
+      $scope.posts[index].likes += 1;
+    };
+
+    $scope.minusOne = function(){
+      $scope.posts[index].dislikes -= 1;
+    };
   }
 
 

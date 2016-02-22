@@ -8,8 +8,8 @@ Posts dynamically reorder according to number of votes
 -
 <!-- A user can create new posts -->
 - complete
-A user cannot create a new post if any of the 4 inputs are blank. Research angular validations. See the video for an example implementation.
--
+<!-- A user cannot create a new post if any of the 4 inputs are blank. Research angular validations. See the video for an example implementation. -->
+- complete
 <!-- A user can click to view existing comments on a specific post -->
 - complete
 The number of comments is correctly pluralized

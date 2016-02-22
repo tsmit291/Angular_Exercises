@@ -38,6 +38,8 @@
       <img src="{{post.image}}" class="image"></img>
       <div class="content">
       <p class="postTitle">{{post.title | uppercase}}</p>
+      <p class="likes" ng-click="plusOne(index)">+{{posts.likes}}</p>
+      <p class="dislikes" ng-click="minusOne(index)">-{{posts.dislikes}}</p>
       <p class="description">{{post.description}}</p>
       <p class="author">{{post.author}}</p>
       <p class="date">{{post.date | date}}</p>

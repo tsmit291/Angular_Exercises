@@ -42,6 +42,7 @@ body {
 .content{
   padding-left: 3%;
   display: inline-block;
+  width: 70%;
 }
 
 .postTitle {
@@ -66,14 +67,17 @@ body {
 
 .date {
   padding-left: 1%;
+  font-size: 10px;
 }
 
 .usercomment {
   padding-left: 3%;
+  font-size: 10px;
 }
 
 .commentor {
   padding-left: 3%;
+  font-size: 10px;
 }
 
 .postForm input.ng-invalid.ng-touched {
