@@ -14,7 +14,7 @@ app.controller("MyController", function($scope){
     post.image = $scope.image;
     post.description = $scope.description;
     post.author = $scope.author;
-    post.date = $scope.date;
+    post.date = Date.now();
     post.comments = [];
     $scope.posts.push(post);
     $scope.title = null;
