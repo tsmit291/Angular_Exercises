@@ -36,11 +36,13 @@
 
     <div class="postLoop" ng-repeat="post in posts | filter:searchable.name">
       <img src="{{post.image}}" class="image"></img>
-      <p class="postTitle">{{post.title}}</p>
+      <div class="content">
+      <p class="postTitle">{{post.title | uppercase}}</p>
       <p class="description">{{post.description}}</p>
       <p class="author">{{post.author}}</p>
-      <p>{{post.date | date}}</p>
+      <p class="date">{{post.date | date}}</p>
       <hr>
+      </div>
 
       <div ng-click="showComments=true">
         <input type="button" value="Add a Comment">
@@ -59,8 +61,8 @@
       </div>
 
       <div class="commentLoop" ng-show={{post.displayComments}} ng-repeat="comment in post.comments | filter:searchable.commentor">
-        <p>{{comment.usercomment}}</p>
-        <p>{{comment.commentor}}</p>
+        <p class="usercomment">{{comment.usercomment}}</p>
+        <p class="commentor">{{comment.commentor}}</p>
     </div>
     <div>
     <input ng-click="toggleComments(post)" type="submit" value="{{commentButton}}">
