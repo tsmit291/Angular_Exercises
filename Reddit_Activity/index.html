@@ -19,11 +19,15 @@
     </div>
     <div class="postForm" ng-show="showme">
       <form ng-submit="newPost()">
-        <input type="text" placeholder="Title" ng-model="title">
-        <input type="text" placeholder="Image" ng-model="image">
-        <input type="text" placeholder="Description" ng-model="description">
-        <input type="text" placeholder="Author" ng-model="author">
-        <input type="text" placeholder="Date" ng-model="date">
+        <p>Add a New Post</p>
+        <input type="text" placeholder="Title" ng-model="title" required>
+        <input type="text" placeholder="Image" ng-model="image" required>
+        <br>
+        <textarea rows="5" cols="15" ng-model="description" required>Description</textarea>
+        <br>
+        <input type="text" placeholder="Author" ng-model="author" required>
+        <input type="text" placeholder="Date" ng-model="date" required>
+        <span ng-show="form.$error.required">These Fields are Required, Brah!</span>
         <div ng-click="showme=false">
           <input type="submit" value="{{buttonText}}">
         </div>
@@ -31,8 +35,8 @@
     </div>
 
     <div class="postLoop" ng-repeat="post in posts | filter:searchable.name">
+      <img src="{{post.image}}" class="image"></img>
       <p class="postTitle">{{post.title}}</p>
-      <img src="{{post.image}}"></img>
       <p class="description">{{post.description}}</p>
       <p class="author">{{post.author}}</p>
       <p>{{post.date | date}}</p>
@@ -45,8 +49,9 @@
 
       <div class="showComments" ng-show="showComments">
         <form ng-submit="newComments(post)">
-          <input type="text" placeholder="Comment" ng-model="$parent.usercomment">
-          <input type="text" placeholder="Commentor" ng-model="$parent.commentor">
+          <input type="text" placeholder="Comment" ng-model="$parent.usercomment" required>
+          <input type="text" placeholder="Commentor" ng-model="$parent.commentor" required>
+          <span ng-show="form.$error.required" >These Fields are Required, Brah!</span>
           <div ng-click="showComments=false">
             <input type="submit" value="{{commentText}}">
           </div>

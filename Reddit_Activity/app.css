@@ -1,7 +1,8 @@
 html {
   font-family: sans-serif;
-  width: 100%:auto;
+  width: 100%;
   margin: 0 auto;
+  padding: 0% auto;
 }
 
 body {
@@ -9,24 +10,64 @@ body {
   margin: 0 auto;
 }
 
-header {
-  background-color: #add8e6;
-  color: white;
+.header {
+  background-color: #e1e6fa;
+  color: black;
+  margin-bottom: 2%;
+}
+
+.header p {
+  padding: 1% 0 0 1%;
 }
 
 .highlight {
-  background-color: pink;
+  background-color: #acc7e2;
 }
 
-p .image {
-  width: 10px;
-  height: 10px;
+.postForm {
+  width: 20%;
+  background-color: #acc7e2;
+  opacity: .6;
+  padding: 3%;
+  border-radius: 4px;
 }
+
+.image {
+  width: 100px;
+  height: 100px;
+  border-radius: 2px;
+  float: left;
+}
+
+.postTitle {
+  font-size: 14px;
+  font-weight: bolder;
+  display: inline-block;
+  padding-left: 1%;
+  margin: auto 0;
+}
+
+.description {
+  font-size: 11px;
+  font-style: italic;
+  display: inline-block;
+  padding-left: 1%;
+}
+
+
+.postForm input.ng-invalid.ng-touched {
+  background-color: #FA787E;
+}
+
+.postForm input.ng-valid.ng-touched {
+  background-color: #78FA89;
+}
+
 
 .postLoop {
  width: 100%;
  padding: 2% 2% 0 2%;
- background-color: pink;
+ background-color: #e1e6fa;
 };
 
 .break {
