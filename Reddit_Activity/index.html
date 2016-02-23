@@ -6,27 +6,38 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.2/angular.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
     <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="app.css">
   </head>
   <body ng-controller="MyController">
     <div class="header">
-      <p>Reddit</p>
-      <p>Search for Post
-        <input type="text" ng-model="searchable.name">
+      <p>Search
+        <input type="text" class="searchBar" ng-model="searchable.name">
       </p>
       <div ng-click="showme=true">
-        <input type="button" value="Add a Post">
+        <button type="submit">Add Post</button>
       </div>
     </div>
+
     <div class="postForm" ng-show="showme">
       <form ng-submit="newPost()" novalidate>
-        <p>Add a New Post</p>
-        <input type="text" placeholder="Title" ng-model="title" ng-minlength="3" ng-maxlength="50" required>
-        <input type="text" placeholder="Image" ng-model="image" required>
-        <br>
-        <textarea rows="5" cols="15" ng-model="description" ng-maxlength="255" required>Description</textarea>
-        <br>
-        <input type="text" placeholder="Author" ng-model="author" ng-maxlength="12" required>
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" placeholder="Title" ng-model="title" ng-minlength="3" ng-maxlength="50" required>
+        </div>
+        <div class="form-group">
+          <label>Image</label>
+          <input type="text" placeholder="Image" ng-model="image" required>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea rows="7" cols="20" ng-model="description" ng-maxlength="255" required>Description</textarea>
+        </div>
+        <div class="form-group">
+          <label>Author</label>
+          <input type="text" placeholder="Author" ng-model="author" ng-maxlength="12" required>
+        </div>
 
         <div ng-messages="postForm.title.$error" ng-if="postForm.title.$touched">
           <p ng-message="minlength">Title is too short</p>
@@ -54,8 +65,12 @@
       <img src="{{post.image}}" class="image"></img>
       <div class="content">
       <p class="postTitle">{{post.title | uppercase}}</p>
-      <p class="likes" ng-click="plusOne(post)">upvote</p>
-      <p class="dislikes" ng-click="minusOne(post)">downvote</p>
+      <div class="likes" ng-click="plusOne(post)">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+      <div class="dislikes" ng-click="plusOne(post)">
+        <i class="fa fa-arrow-down"></i>
+      </div>
       <p>{{post.votes}}</p>
       <p class="author">{{post.author}}<i> says:</i></p>
       <p class="description">{{post.description}}</p>
@@ -64,7 +79,7 @@
       </div>
 
       <div ng-click="showComments=true">
-        <input type="button" value="Add a Comment">
+        <input type="button" class="addComment" value="Add a Comment">
       </div>
 
 

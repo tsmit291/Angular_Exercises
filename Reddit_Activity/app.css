@@ -1,23 +1,42 @@
 html {
-  font-family: sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
   width: 100%;
   margin: 0 auto;
   padding: 0% auto;
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
   margin: 0 auto;
 }
 
 .header {
-  background-color: #e1e6fa;
+  background-color: #fada72;
   color: black;
   margin-bottom: 2%;
 }
 
+.reddit {
+  font-size: 28px;
+}
+
 .header p {
   padding: 1% 0 0 1%;
+}
+
+.addPost {
+  display: inline-block;
+  margin: 1% 0 2% 1%;
+  font-size: 25px;
+}
+
+.searchBar {
+  display: inline-block;
+}
+
+.addComment {
+  float: left;
+  margin: 0 2% 1% 2%;
 }
 
 .highlight {
@@ -26,8 +45,6 @@ body {
 
 .postForm {
   width: 20%;
-  background-color: #acc7e2;
-  opacity: .6;
   padding: 3%;
   border-radius: 4px;
 }
@@ -41,7 +58,7 @@ body {
 }
 
 .content{
-  padding: 3%;
+  padding: 4%;
   display: inline-block;
   width: 70%;
 }
@@ -51,6 +68,7 @@ body {
   float:left;
   font-weight: bolder;
   margin: auto 0;
+  padding-bottom:2%;
 }
 
 .likes {
@@ -103,13 +121,11 @@ body {
 .postLoop {
  width: 100%;
  padding: 2% 2% 0 2%;
- background-color: #e1e6fa;
 };
 
 .commentLoop {
   width: 100%;
   padding: 2% 2% 0 5%;
-  background-color: #e1e6fa;
 }
 
 .break {
