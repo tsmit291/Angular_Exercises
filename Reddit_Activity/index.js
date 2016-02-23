@@ -1,5 +1,6 @@
 var app = angular.module("redditApp", []);
 app.controller("MyController", function($scope){
+angular.module('app', ['ngMessages']);
 
   $scope.posts = [];
   // $scope.comments = [];

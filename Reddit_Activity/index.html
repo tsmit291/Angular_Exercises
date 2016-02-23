@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Reddit App</title>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.2/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <link rel="stylesheet" href="app.css">
   </head>
@@ -18,15 +19,31 @@
       </div>
     </div>
     <div class="postForm" ng-show="showme">
-      <form ng-submit="newPost()">
+      <form ng-submit="newPost()" novalidate>
         <p>Add a New Post</p>
-        <input type="text" placeholder="Title" ng-model="title" required>
+        <input type="text" placeholder="Title" ng-model="title" ng-minlength="3" ng-maxlength="50" required>
         <input type="text" placeholder="Image" ng-model="image" required>
         <br>
-        <textarea rows="5" cols="15" ng-model="description" required>Description</textarea>
+        <textarea rows="5" cols="15" ng-model="description" ng-maxlength="255" required>Description</textarea>
         <br>
-        <input type="text" placeholder="Author" ng-model="author" required>
-        <span ng-show="form.$error.required">These Fields are Required, Brah!</span>
+        <input type="text" placeholder="Author" ng-model="author" ng-maxlength="12" required>
+
+        <div ng-messages="postForm.title.$error" ng-if="postForm.title.$touched">
+          <p ng-message="minlength">Title is too short</p>
+          <p ng-message="maxlength">Title is too long</p>
+          <p ng-message="required">Title is required</p>
+        </div>
+        <div ng-messages="postForm.image.$error" ng-if="postForm.image.$touched">
+          <p ng-message="required">Image is required</p>
+        </div>
+        <div ng-messages="postForm.description.$error" ng-if="postForm.description.$touched">
+          <p ng-message="maxlength">Description is too long</p>
+          <p ng-message="required">Description is required</p>
+        </div>
+        <div ng-messages="postForm.author.$error" ng-if="postForm.author.$touched">
+          <p ng-message="maxlength">Author is too long</p>
+          <p ng-message="required">Author is required</P>
+        </div>
         <div ng-click="showme=false">
           <input type="submit" value="{{buttonText}}">
         </div>
