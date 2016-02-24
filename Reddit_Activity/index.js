@@ -16,7 +16,7 @@ app.controller("MyController", function($scope){
   $scope.buttonText = "Submit New Post";
   $scope.commentText = "Submit New Comment";
   $scope.commentButton= "Show All Comments";
-
+  $scope.blackVote = "color: pink";
 
   $scope.newPost = function(){
     var post = {};
@@ -43,13 +43,13 @@ app.controller("MyController", function($scope){
 
   $scope.plusOne = function(index){
     index.votes += 1;
-    // if (index.votes === 0){
-    //   post.votes = blackVote;
-    // } else if (index.votes < 0){
-    //   post.votes = redVote;
-    // } else (index.votes > 0){
-    //   post.votes = greenVote;
-    // }
+    if (index.votes === 0){
+      post.votes = $scope.blackVote;
+    } else if (index.votes < 0){
+      post.votes = $scope.redVote;
+    } else if (index.votes > 0){
+      post.votes = $scope.greenVote;
+    }
   };
 
   $scope.minusOne = function(index){
