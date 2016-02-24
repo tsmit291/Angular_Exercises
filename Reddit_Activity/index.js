@@ -17,6 +17,8 @@ app.controller("MyController", function($scope){
   $scope.commentText = "Submit New Comment";
   $scope.commentButton= "Show All Comments";
   $scope.blackVote = "color: pink";
+  $scope.redVote = "color: red";
+  $scope.greenVote = "color: green";
 
   $scope.newPost = function(){
     var post = {};
