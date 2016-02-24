@@ -35,18 +35,33 @@ app.controller("MyController", function($scope){
       allComments.usercomment = $scope.usercomment;
       allComments.commentor = $scope.commentor;
       iteration.comments.push(allComments);
-      console.log(allComments);
     }
 
     $scope.toggleComments = false;
 
   };
+
   $scope.plusOne = function(index){
     index.votes += 1;
+    // if (index.votes === 0){
+    //   post.votes = blackVote;
+    // } else if (index.votes < 0){
+    //   post.votes = redVote;
+    // } else (index.votes > 0){
+    //   post.votes = greenVote;
+    // }
   };
 
   $scope.minusOne = function(index){
     index.votes -= 1;
+    // if (index.votes === 0){
+    //   post.votes = blackVote;
+    // } else if (index.votes < 0){
+    //   post.votes = redVote;
+    // } else (index.votes > 0){
+    //   post.votes = greenVote;
+    // }
   };
+
 
   });

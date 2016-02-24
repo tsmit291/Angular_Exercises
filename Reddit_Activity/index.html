@@ -62,7 +62,7 @@
         </form>
       </div>
 
-      <div class="postLoop" ng-repeat="post in posts | filter:searchable.name">
+      <div class="postLoop" ng-repeat="post in posts | filter:searchable.name | orderBy: sortBy | orderBy: 'votes'">
         <img src="{{post.image}}" class="image"></img>
         <div class="content">
         <p class="postTitle">{{post.title | uppercase}}</p>
