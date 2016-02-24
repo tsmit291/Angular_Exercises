@@ -1,12 +1,22 @@
-var app = angular.module("redditApp", []);
+var app = angular.module("redditApp", ['ngAnimate']);
 app.controller("MyController", function($scope){
-angular.module('app', ['ngMessages']);
 
-  $scope.posts = [];
-  // $scope.comments = [];
+
+  $scope.posts = [{
+      title: 'Lemons are Everything',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/Lemon.jpg',
+      description: 'lemons are everything my friend!',
+      votes: 5,
+      date: new Date('12/15/2004'),
+      author: 'taylor smith',
+      comments: [{usercomment: 'hey this is a comment', commentor: 'commentor'}],
+      displayComments: true
+      }];
+
   $scope.buttonText = "Submit New Post";
   $scope.commentText = "Submit New Comment";
   $scope.commentButton= "Show All Comments";
+
 
   $scope.newPost = function(){
     var post = {};
@@ -18,7 +28,6 @@ angular.module('app', ['ngMessages']);
     post.date = Date.now();
     post.comments = [];
     $scope.posts.push(post);
-    $scope.title = null;
     post.displayComments = true;
 
     $scope.newComments = function(iteration){
@@ -26,22 +35,18 @@ angular.module('app', ['ngMessages']);
       allComments.usercomment = $scope.usercomment;
       allComments.commentor = $scope.commentor;
       iteration.comments.push(allComments);
-      console.log(iteration);
+      console.log(allComments);
     }
 
     $scope.toggleComments = false;
-    $scope.plusOne = !$scope.plusOne;
 
-    $scope.plusOne = function(index){
-      index.votes += 1;
-    };
+  };
+  $scope.plusOne = function(index){
+    index.votes += 1;
+  };
 
-    $scope.minusOne = function(index){
-      index.votes -= 1;
-    };
-  }
-
-
-
+  $scope.minusOne = function(index){
+    index.votes -= 1;
+  };
 
   });

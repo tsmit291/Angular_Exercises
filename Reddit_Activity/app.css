@@ -10,6 +10,18 @@ body {
   margin: 0 auto;
 }
 
+.panel {
+  margin: 0 auto;
+  padding: 2%;
+  width: 60%;
+  height: 10%;
+}
+
+.page-header {
+  background-color:#fada72;
+  margin: 0 auto;
+}
+
 .header {
   background-color: #fada72;
   color: black;
@@ -37,6 +49,10 @@ body {
 .addComment {
   float: left;
   margin: 0 2% 1% 2%;
+}
+
+.dropdown-menu {
+  float: right;
 }
 
 .highlight {
@@ -68,7 +84,7 @@ body {
   float:left;
   font-weight: bolder;
   margin: auto 0;
-  padding-bottom:2%;
+  padding: 0 1% 2% 0;
 }
 
 .likes {
@@ -83,14 +99,15 @@ body {
 .description {
   font-size: 11px;
   font-style: italic;
-  display: inline-block;
+  float: left;*/
   padding-left: 1%;
 }
 
 .author {
-  font-size: 10px;
-  padding-left: 1%;
-  float: left;
+  font-size: 13px;
+  padding-right: 3%;
+  font-style: italic;
+  float: right;
 }
 
 .date {

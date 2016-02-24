@@ -6,101 +6,106 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.2/angular.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
     <script type="text/javascript" src="index.js"></script>
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="app.css">
   </head>
   <body ng-controller="MyController">
-    <div class="header">
+    <div class="page-header">
+      <h1>Reddit</h1>
       <p>Search
         <input type="text" class="searchBar" ng-model="searchable.name">
       </p>
       <div ng-click="showme=true">
-        <button type="submit">Add Post</button>
+        <button type="submit">Add post</button>
+      </div>
+
+      <div class="dropdown">
+        <select id="dropdown-menu" ng-model="sortBy" name="Sort">
+          <option value="">Sort</option>
+          <option value="votes">Votes</option>
+          <option value="date">Date</option>
+          <option value="title">Title</option>
+        </select>
       </div>
     </div>
 
-    <div class="postForm" ng-show="showme">
-      <form ng-submit="newPost()" novalidate>
-        <div class="form-group">
-          <label>Title</label>
-          <input type="text" placeholder="Title" ng-model="title" ng-minlength="3" ng-maxlength="50" required>
-        </div>
-        <div class="form-group">
-          <label>Image</label>
-          <input type="text" placeholder="Image" ng-model="image" required>
-        </div>
-        <div class="form-group">
-          <label>Description</label>
-          <textarea rows="7" cols="20" ng-model="description" ng-maxlength="255" required>Description</textarea>
-        </div>
-        <div class="form-group">
-          <label>Author</label>
-          <input type="text" placeholder="Author" ng-model="author" ng-maxlength="12" required>
-        </div>
-
-        <div ng-messages="postForm.title.$error" ng-if="postForm.title.$touched">
-          <p ng-message="minlength">Title is too short</p>
-          <p ng-message="maxlength">Title is too long</p>
-          <p ng-message="required">Title is required</p>
-        </div>
-        <div ng-messages="postForm.image.$error" ng-if="postForm.image.$touched">
-          <p ng-message="required">Image is required</p>
-        </div>
-        <div ng-messages="postForm.description.$error" ng-if="postForm.description.$touched">
-          <p ng-message="maxlength">Description is too long</p>
-          <p ng-message="required">Description is required</p>
-        </div>
-        <div ng-messages="postForm.author.$error" ng-if="postForm.author.$touched">
-          <p ng-message="maxlength">Author is too long</p>
-          <p ng-message="required">Author is required</P>
-        </div>
-        <div ng-click="showme=false">
-          <input type="submit" value="{{buttonText}}">
-        </div>
-      </form>
-    </div>
-
-    <div class="postLoop" ng-repeat="post in posts | filter:searchable.name">
-      <img src="{{post.image}}" class="image"></img>
-      <div class="content">
-      <p class="postTitle">{{post.title | uppercase}}</p>
-      <div class="likes" ng-click="plusOne(post)">
-        <i class="fa fa-arrow-up"></i>
-      </div>
-      <div class="dislikes" ng-click="plusOne(post)">
-        <i class="fa fa-arrow-down"></i>
-      </div>
-      <p>{{post.votes}}</p>
-      <p class="author">{{post.author}}<i> says:</i></p>
-      <p class="description">{{post.description}}</p>
-      <p class="date">{{post.date | date:'medium'}}</p>
-      <hr>
-      </div>
-
-      <div ng-click="showComments=true">
-        <input type="button" class="addComment" value="Add a Comment">
-      </div>
-
-
-      <div class="showComments" ng-show="showComments">
-        <form ng-submit="newComments(post)">
-          <input type="text" placeholder="Comment" ng-model="$parent.usercomment" required>
-          <input type="text" placeholder="Commentor" ng-model="$parent.commentor" required>
-          <span ng-show="form.$error.required" >These Fields are Required, Brah!</span>
-          <div ng-click="showComments=false">
-            <input type="submit" value="{{commentText}}">
+    <div class="container">
+      <div class="postForm" ng-show="showme">
+        <form ng-submit="newPost()" name="postme">
+          <div class="input-group">
+            <label>Title</label>
+            <input type="text" class="form-control" placeholder="Title" ng-model="title" ng-minlength="3" ng-maxlength="50" required>
           </div>
+          <div class="input-group">
+            <label>Image</label>
+            <input type="text" class="form-control" placeholder="Image" ng-model="image" required>
+          </div>
+          <div class="input-group">
+            <label>Description</label>
+            <textarea rows="7" cols="20" class="form-control" ng-model="description" ng-maxlength="255" required>Description</textarea>
+          </div>
+          <div class="input-group">
+            <label>Author</label>
+            <input type="text" class="form-control" placeholder="Author" ng-model="author" ng-maxlength="12" required>
+          </div>
+
+          <div ng-click="showme=false">
+            <input type="submit" value="{{buttonText}}">
+          </div>
+
         </form>
       </div>
 
-      <div class="commentLoop" ng-show={{post.displayComments}} ng-repeat="comment in post.comments | filter:searchable.commentor">
-        <p class="usercomment">{{comment.usercomment}}</p>
-        <p class="commentor">{{comment.commentor}}</p>
-    </div>
-    <div>
-    <input ng-click="toggleComments(post)" type="submit" value="{{commentButton}}">
-    </div>
+      <div class="postLoop" ng-repeat="post in posts | filter:searchable.name">
+        <img src="{{post.image}}" class="image"></img>
+        <div class="content">
+        <p class="postTitle">{{post.title | uppercase}}</p>
+        <div ng-click="plusOne(post)">
+          <i class="fa fa-arrow-up"></i>
+        </div>
+        <div ng-click="minusOne(post)">
+          <i class="fa fa-arrow-down"></i>
+        </div>
+        <p>{{post.votes}}</p>
+        <p class="author">{{post.author}}</p>
+        <br>
+        <p class="description">{{post.description}}</p>
+        <p class="date">{{post.date | date:'medium'}}</p>
+        <hr>
+
+        <div ng-click="showComments=true">
+          <input type="button" class="addComment" value="Add a Comment">
+        </div>
+        </div>
+
+
+        <div class="showComments" ng-show="showComments">
+          <form ng-submit="newComments(post)">
+            <input type="text" placeholder="Comment" ng-model="usercomment" required>
+            <input type="text" placeholder="Commentor" ng-model="commentor" required>
+            <div ng-click="showComments=false">
+              <input type="submit" value="{{commentText}}">
+            </div>
+          </form>
+        </div>
+
+        <div class="panel panel-default" ng-show={{post.displayComments}} ng-repeat="comment in post.comments | filter:searchable.commentor">
+          <div class="panel-heading">
+            <p class="panel-title">{{comment.usercomment}}</p>
+          </div>
+            <p class="panel-body">{{comment.commentor}}</p>
+      </div>
+      <div>
+      <input ng-click="toggleComments(post)" type="submit" value="{{commentButton}}">
+      </div>
+      </div>
+
     </div>
   </body>
 </html>
